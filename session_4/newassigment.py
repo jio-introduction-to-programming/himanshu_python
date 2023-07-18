@@ -29,7 +29,7 @@ def get_sum_sequence():
         for _ in range(k):
             start, end = map(int, input("Enter start and end indices (space-separated): ").split())
             result.append(sum(numbers[start:end + 1]))
-        return result1
+        return result
     except ValueError:
         print("Invalid input! Please enter valid integers.")
         return []
