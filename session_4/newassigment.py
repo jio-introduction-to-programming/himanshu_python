@@ -21,20 +21,14 @@ print(list_reverse([1,2,3,4]))
 print(bubble_sort([1,2,3,4]))
 print(list_stats([1,2,3,4]))
 
-def get_sum_sequence():
-    try:
-        numbers = list(map(int, input("Enter a sequence of numbers (space-separated): ").split()))
-        k = int(input("Enter the value of k: "))
-        result = []
-        for _ in range(k):
-            start, end = map(int, input("Enter start and end indices (space-separated): ").split())
-            result.append(sum(numbers[start:end + 1]))
-        return result
-    except ValueError:
-        print("Invalid input! Please enter valid integers.")
-        return []
+numbers = list(map(int, input("Enter a sequence of numbers separated by spaces: ").split()))
+k = int(input("Enter another integer k: "))
+indices = []
+for i in range(k):
+    start, end = map(int, input(f"Enter two numbers start and end for {i+1}th query separated by spaces: ").split())
+    indices.append((start, end))
+sums = [sum(numbers[start:end+1]) for start, end in indices]
+print(f"The result is: {sums}")
 
-k_sized_list = get_sum_sequence()
-print(k_sized_list)
 
 
